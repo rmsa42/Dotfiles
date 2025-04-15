@@ -1,10 +1,10 @@
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = false
-vim.opt.showtabline = 2
 
 vim.opt.smartindent = true
 vim.opt.ignorecase = true
@@ -12,6 +12,19 @@ vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
+vim.opt.scrolloff = 10
 
-vim.opt.list = true
-vim.opt.listchars = { tab = '->' }
+--vim.opt.clipboard = unnamed
+vim.api.nvim_set_option("clipboard", "unnamedplus")
+
+vim.diagnostic.config({
+	update_in_insert = true,
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	severity_sort = true,
+})
+
+-- Show Tabs as ->
+--vim.opt.list = true
+--vim.opt.listchars = { tab = '->', trail = '.' }
