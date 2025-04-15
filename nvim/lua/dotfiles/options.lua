@@ -14,7 +14,6 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 10
 
---vim.opt.clipboard = unnamed
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 vim.diagnostic.config({
