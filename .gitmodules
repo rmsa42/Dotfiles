@@ -1,0 +1,3 @@
+[submodule "nvim/Quotes"]
+	path = nvim/Quotes
+	url = https://github.com/Cralos9/Quotes

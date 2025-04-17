@@ -4,7 +4,7 @@ return {
 		"echasnovski/mini.icons",
 	},
 	config = function()
-		local quotes_file = "/home/rumachad/Random/Quotes/Rui"
+		local quotes_file = os.getenv("HOME") .. "/.config/nvim/Quotes/Rui"
 		local dashboard = require("alpha.themes.dashboard")
 
 		dashboard.section.header.val = 
