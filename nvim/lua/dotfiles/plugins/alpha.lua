@@ -41,7 +41,7 @@ return {
 			end),
 			dashboard.button("r", " Recent Files", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("f", "󰮗 Find Files", "<cmd>Telescope find_files<CR>"),
-			dashboard.button("q", "󰗼 Quit", "<cmd>q<CR>")
+			dashboard.button("q", "󰗼 Quit", "<cmd>qa<CR>")
 		}
 
 		local quote = function(file_name)
@@ -66,11 +66,21 @@ return {
 		dashboard.section.footer.val = {
 			getQuote(),
 		}
-
+		
+		local opts = {
+			layout = {
+				{ type = "padding", val = 2 },
+				dashboard.section.header,
+				{ type = "padding", val = 5 },
+				dashboard.section.buttons,
+				{ type = "padding", val = 7 },
+				dashboard.section.footer,
+			},
+		}
 		require("alpha").setup(
-			dashboard.opts
+			opts
 		)
-
+		
 		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
 	end,
 }
