@@ -19,7 +19,7 @@ vim.api.nvim_set_option("clipboard", "unnamedplus")
 vim.diagnostic.config({
 	update_in_insert = true,
 	virtual_text = true,
-	signs = true,
+	signs = false,
 	underline = true,
 	severity_sort = true,
 })
