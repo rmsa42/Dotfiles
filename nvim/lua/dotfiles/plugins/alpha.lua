@@ -41,6 +41,10 @@ return {
 			end),
 			dashboard.button("r", " Recent Files", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("f", "󰮗 Find Files", "<cmd>Telescope find_files<CR>"),
+			dashboard.button("c", "󰮗 Config Files", function()
+				vim.cmd("cd ~/.config/nvim")
+				vim.cmd("Ex")
+			end),
 			dashboard.button("q", "󰗼 Quit", "<cmd>qa<CR>")
 		}
 
