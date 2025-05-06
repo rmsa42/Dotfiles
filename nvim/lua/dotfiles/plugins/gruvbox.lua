@@ -10,6 +10,9 @@ return {
 			palette_overrides = {
 				dark0_hard = "#202020"
 			},
+			overrides = {
+				["@function.builtin"] = { fg = "#7ed4b1" },
+			},
 		})
 		vim.cmd("colorscheme gruvbox")
 	end
