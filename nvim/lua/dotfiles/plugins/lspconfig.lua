@@ -26,6 +26,9 @@ return {
 				vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action, opts)
 				-- Clangd Formatter
 				vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, opts)
+				-- Diagnostics Mappings
+				vim.keymap.set('n', '[d', vim.diagnostic.goto_next, opts)
+				vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, opts)
 			end,	
 		})
 		vim.lsp.enable("clangd")
