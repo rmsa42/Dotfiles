@@ -5,6 +5,11 @@ return {
 	  
 	config = function()
 		require("telescope").setup({
+			defualts = {
+				file_ignore_patterns = {
+					"%.o"
+				},
+			},
 			pickers = {
 				oldfiles = {
 					cwd_only = true,

@@ -24,6 +24,8 @@ return {
 				vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
 				vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
 				vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action, opts)
+				-- Clangd Formatter
+				vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, opts)
 			end,	
 		})
 		vim.lsp.enable("clangd")
