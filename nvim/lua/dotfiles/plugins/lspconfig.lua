@@ -12,7 +12,7 @@ return {
 				"clangd",
 				"--header-insertion=never",
 			},
-			filetypes = { "c", "h" },
+			filetypes = { "c", "h", "cpp" },
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

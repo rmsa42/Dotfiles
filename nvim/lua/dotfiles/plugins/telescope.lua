@@ -5,7 +5,7 @@ return {
 	  
 	config = function()
 		require("telescope").setup({
-			defualts = {
+			defaults = {
 				file_ignore_patterns = {
 					"%.o"
 				},
