@@ -16,6 +16,15 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+		vim.lsp.config("ts_ls", {
+			cmd = {
+				"typescript-language-server",
+				"--stdio"
+			},
+			filetypes = { "typescript", "javascript" },
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local opts = { buffer = args.buf }
@@ -32,5 +41,6 @@ return {
 			end,	
 		})
 		vim.lsp.enable("clangd")
+		vim.lsp.enable("ts_ls")
 	end
 }
