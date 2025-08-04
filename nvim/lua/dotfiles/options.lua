@@ -1,3 +1,4 @@
+-- Options
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -25,6 +26,11 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
--- Show Tabs as ->
---vim.opt.list = true
---vim.opt.listchars = { tab = '->', trail = '.' }
+-- Remaps
+vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>dd", vim.cmd.Ex)
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>l', ':e #<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>w', ':w<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>vs', ':vs #<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>rs', ':e!<CR>')
