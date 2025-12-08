@@ -1,0 +1,25 @@
+[user]
+	name = rmsa42
+[alias]
+	p = push
+	pl = pull
+	pu = push --set-upstream
+	a = add
+	c = commit
+	cm = commit -m
+	cam = commit --amend
+	camsg = commit --all -m
+	rt = restore
+	st = status
+	cb = checkout -b
+	sw = switch
+	br = branch
+	brd = branch -d
+	bra = branch --all
+	brm = !git branch --merged develop | xargs | tr ' ' '\n'
+	rtpo = remote prune origin
+	cl = clone --recurse-submodules
+	lol = log --one-line
+
+	# Clean merged branches (Current branch: develop)
+	clmerged = !git branch --merged develop | grep -v develop | xargs git branch -d && git remote prune origin

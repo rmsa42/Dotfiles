@@ -14,6 +14,9 @@ return {
 				oldfiles = {
 					cwd_only = true,
 				},
+				find_files = {
+					hidden = true,
+				},
 			},
 		})
 
