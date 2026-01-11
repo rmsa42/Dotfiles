@@ -8,9 +8,9 @@ git config --global user.email $email
 
 # Set up nvim config
 if [ -z $XDG_CONFIG_HOME ]; then
-	cp $PWD/nvim ~/.config/.
+	cp -r $PWD/nvim ~/.config/.
 else
-	cp $PWD/nvim $XDG_CONFIG_HOME/.
+	cp -r $PWD/nvim $XDG_CONFIG_HOME/.
 fi
 
 cd $HOME
