@@ -3,14 +3,14 @@ PWD=$(pwd)
 # Set up global .gitconfig file
 echo -n "Github email:"
 read email
-cp -sf $PWD/gitconfig.txt ~/.gitconfig
+cp $PWD/gitconfig.txt ~/.gitconfig
 git config --global user.email $email
 
 # Set up nvim config
 if [ -z $XDG_CONFIG_HOME ]; then
-	ln -sf $PWD/nvim ~/.config/.
+	cp $PWD/nvim ~/.config/.
 else
-	ln -sf $PWD/nvim $XDG_CONFIG_HOME/.
+	cp $PWD/nvim $XDG_CONFIG_HOME/.
 fi
 
 cd $HOME
