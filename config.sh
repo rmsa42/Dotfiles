@@ -1,22 +1,26 @@
-PWD=$(pwd)
+apt-get install -y curl zsh npm clangd
 
 # Set up global .gitconfig file
 echo -n "Github email:"
 read email
-cp $PWD/gitconfig.txt ~/.gitconfig
+cp ./gitconfig.txt ~/.gitconfig
 git config --global user.email $email
 
-# Set up nvim config
-if [ -z $XDG_CONFIG_HOME ]; then
-	cp -r $PWD/nvim ~/.config/.
-else
-	cp -r $PWD/nvim $XDG_CONFIG_HOME/.
-fi
-
 cd $HOME
-apt-get install -y curl zsh
 
 # Install oh-my-zsh via curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir -p bin
-echo 'export PATH="$PATH:$HOME/bin"' >> .zshrc
+mkdir -p Programs
+
+# Set up nvim config
+NVIM_BIN="nvim0.11.0"
+wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.appimage -O $(NVIM_BIN)
+chmod +x $(NVIM_BIN)
+mv bin/ $(NVIM_BIN)
+if [ -z $XDG_CONFIG_HOME ]; then
+	cp -r ./nvim ~/.config/.
+else
+	cp -r ./nvim $XDG_CONFIG_HOME/.
+fi
+npm install -g tree-sitter-cli
