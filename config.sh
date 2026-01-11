@@ -3,7 +3,7 @@ PWD=$(pwd)
 # Set up global .gitconfig file
 echo -n "Github email:"
 read email
-ln -sf $PWD/gitconfig ~/.gitconfig
+cp -sf $PWD/gitconfig.txt ~/.gitconfig
 git config --global user.email $email
 
 # Set up nvim config

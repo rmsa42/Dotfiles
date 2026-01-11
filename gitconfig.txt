@@ -1,5 +1,6 @@
 [user]
 	name = rmsa42
+	email = rui.soares.almeida@outlook.pt
 [alias]
 	p = push
 	pl = pull
