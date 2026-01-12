@@ -1,10 +1,12 @@
 DOTFILES=$(pwd)
 BIN="$HOME/bin"
 PROGRAMS="$HOME/Programs"
+CONFIG="$HOME/.config"
 
 sudo apt-get install -y curl zsh npm clangd
 mkdir -p $BIN
-mkdir -p $HOME/Programs
+mkdir -p $PROGRAMS
+mkdir -p $CONFIG
 
 # Set up global .gitconfig file
 GITCONFIG_FILE="$HOME/.gitconfig"
@@ -15,16 +17,15 @@ cp ./gitconfig.txt $GITCONFIG_FILE
 git config --global user.email $email
 
 # Set up nvim config
-NVIM="$PROGRAMS/nvim"
 NVIM_TAR="$NVIM.tar.gz"
 if [[ ! -a $NVIM_BIN ]]; then
 	echo "Setup nvim"
 	wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz -O $NVIM_TAR
-	tar -xvzf $NVIM_TAR
-	ln -sf $NVIM/bin/nvim $BIN/nvim
+	tar -xvzf $NVIM_TAR -C $PROGRAMS
+	ln -sf $PROGRAMS/nvim/bin/nvim $BIN/nvim
 	rm -rf $NVIM_TAR
 	if [ -z $XDG_CONFIG_HOME ]; then
-		cp -r $DOTFILES/nvim ~/.config/.
+		cp -r $DOTFILES/nvim $CONFIG
 	else
 		cp -r $DOTFILES/nvim $XDG_CONFIG_HOME/.
 	fi
