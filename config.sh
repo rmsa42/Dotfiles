@@ -11,18 +11,21 @@ mkdir -p $CONFIG
 # Set up global .gitconfig file
 GITCONFIG_FILE="$HOME/.gitconfig"
 echo "Setup gitconfig"
-echo -n "Github email: "
-read email
-cp ./gitconfig.txt $GITCONFIG_FILE
-git config --global user.email $email
+if [ -z $(git config --global user.email) ]; then
+	echo -n "Github email: "
+	read email
+	cp ./gitconfig.txt $GITCONFIG_FILE
+	git config --global user.email $email
+fi
 
 # Set up nvim config
+NVIM="nvim-linux-x86_64"
 NVIM_TAR="$NVIM.tar.gz"
 if [[ ! -a $NVIM_BIN ]]; then
 	echo "Setup nvim"
-	wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz -O $NVIM_TAR
+	wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
 	tar -xvzf $NVIM_TAR -C $PROGRAMS
-	ln -sf $PROGRAMS/nvim/bin/nvim $BIN/nvim
+	ln -sf $PROGRAMS/$NVIM/bin/nvim $BIN/nvim
 	rm -rf $NVIM_TAR
 	if [ -z $XDG_CONFIG_HOME ]; then
 		cp -r $DOTFILES/nvim $CONFIG
