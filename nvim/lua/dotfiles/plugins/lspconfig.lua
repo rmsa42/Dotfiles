@@ -11,6 +11,7 @@ return {
 			cmd = {
 				"clangd",
 				"--header-insertion=never",
+				"--query-driver=/home/rumachad/Seame/agl-app/sdk/sysroots/x86_64-aglsdk-linux/usr/bin/aarch64-agl-linux/aarch64-agl-linux-g++"
 			},
 			filetypes = { "c", "h", "cpp", "hpp" },
 			capabilities = capabilities,
@@ -21,9 +22,17 @@ return {
 				"typescript-language-server",
 				"--stdio"
 			},
-			filetypes = { "typescript", "javascript" },
+			filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
 			capabilities = capabilities,
 			on_attach = on_attach,
+		})
+		vim.lsp.config("gopls", {
+			cmd = {
+				"gopls"
+			},
+			filetypes = { "go" },
+			capabilities = capabilities,
+			on_attach = on_attach
 		})
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
@@ -42,5 +51,6 @@ return {
 		})
 		vim.lsp.enable("clangd")
 		vim.lsp.enable("ts_ls")
+		vim.lsp.enable("gopls")
 	end
 }
