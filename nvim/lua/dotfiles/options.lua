@@ -34,18 +34,7 @@ vim.keymap.set({'n', 'v'}, '<leader>l', ':e #<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>w', ':w<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>vs', ':vs #<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>rs', ':e!<CR>')
-vim.keymap.set('n', '<leader>t',
-	function()
-		vim.ui.input({
-			completion = "file",
-			prompt = "Run: "
-		}, function(input)
-				if input == nil then
-					return
-				end
-				vim.cmd.RunT({ input })
-			end)
-	end)
+vim.keymap.set('n', '<leader>t', ':RunT ')
 
 -- Custom Commands
 vim.api.nvim_create_user_command("Macros", 
