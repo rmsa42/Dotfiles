@@ -7,7 +7,10 @@ return {
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = {
-					"%.o"
+					"%.o",
+					".cache/",
+					".git/",
+					"node_modules/"
 				},
 			},
 			pickers = {

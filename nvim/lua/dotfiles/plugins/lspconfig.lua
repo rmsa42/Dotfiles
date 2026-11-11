@@ -10,8 +10,6 @@ return {
 		vim.lsp.config("clangd", {
 			cmd = {
 				"clangd",
-				"--header-insertion=never",
-				"--query-driver=/home/rumachad/Seame/agl-app/sdk/sysroots/x86_64-aglsdk-linux/usr/bin/aarch64-agl-linux/aarch64-agl-linux-g++"
 			},
 			filetypes = { "c", "h", "cpp", "hpp" },
 			capabilities = capabilities,
