@@ -35,6 +35,7 @@ vim.keymap.set({'n', 'v'}, '<leader>w', ':w<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>vs', ':vs #<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>rs', ':e!<CR>')
 vim.keymap.set('n', '<leader>t', ':RunT ')
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 -- Custom Commands
 vim.api.nvim_create_user_command("Macros", 
@@ -89,9 +90,10 @@ vim.api.nvim_create_user_command("RunT",
 		local buf = vim.api.nvim_create_buf(false, true)
 		local win = vim.api.nvim_open_win(buf, true, {
 			width = vim.o.columns,
-			height = 15,
+			height = 20,
 			style = "minimal",
 			split = "below",
+			win = -1,
 		})
 		if vim.fn.has("win32") == 1 then
 			shell = { "powershell", "/c", args.args }
